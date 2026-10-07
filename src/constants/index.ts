@@ -1,0 +1,80 @@
+import { Role } from '../types';
+
+export const PERMISSIONS = {
+  // Dashboards
+  VIEW_DOCTOR_DASHBOARD: 'view:doctor_dashboard',
+  VIEW_RECEPTIONIST_DASHBOARD: 'view:receptionist_dashboard',
+
+  // Patients
+  VIEW_PATIENT_LIST: 'view:patient_list',
+  VIEW_PATIENT_DETAILS: 'view:patient_details',
+  REGISTER_PATIENT: 'register:patient',
+  EDIT_PATIENT: 'edit:patient',
+  DELETE_PATIENT: 'delete:patient',
+  UPLOAD_PATIENT_IMAGES: 'upload:patient_images',
+  COMPARE_PATIENT_IMAGES: 'compare:patient_images',
+
+  // Appointments & Queue
+  VIEW_APPOINTMENTS: 'view:appointments',
+  BOOK_APPOINTMENT: 'book:appointment',
+  RESCHEDULE_APPOINTMENT: 'reschedule:appointment',
+  CANCEL_APPOINTMENT: 'cancel:appointment',
+  MANAGE_QUEUE: 'manage:queue',
+
+  // Prescriptions
+  VIEW_PRESCRIPTIONS: 'view:prescriptions',
+  CREATE_PRESCRIPTION: 'create:prescription',
+  UPDATE_PRESCRIPTION: 'update:prescription',
+  MODIFY_DOCTOR_NOTES: 'modify:doctor_notes',
+
+  // Billing & Payments
+  GENERATE_BILLS: 'generate:bills',
+  RECEIVE_PAYMENTS: 'receive:payments',
+  PRINT_INVOICE: 'print:invoice',
+  VIEW_REVENUE: 'view:revenue',
+  VIEW_PENDING_PAYMENTS: 'view:pending_payments',
+
+  // Reports
+  VIEW_REPORTS: 'view:reports',
+
+  // Settings & System
+  MANAGE_SETTINGS: 'manage:settings',
+  MANAGE_USERS: 'manage:users',
+} as const;
+
+export type Permission = typeof PERMISSIONS[keyof typeof PERMISSIONS];
+
+export const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
+  DOCTOR: [
+    PERMISSIONS.VIEW_DOCTOR_DASHBOARD,
+    PERMISSIONS.VIEW_PATIENT_LIST,
+    PERMISSIONS.VIEW_PATIENT_DETAILS,
+    PERMISSIONS.COMPARE_PATIENT_IMAGES,
+    PERMISSIONS.VIEW_APPOINTMENTS,
+    PERMISSIONS.VIEW_PRESCRIPTIONS,
+    PERMISSIONS.CREATE_PRESCRIPTION,
+    PERMISSIONS.UPDATE_PRESCRIPTION,
+    PERMISSIONS.MODIFY_DOCTOR_NOTES,
+    PERMISSIONS.VIEW_REPORTS,
+    PERMISSIONS.VIEW_REVENUE,
+    PERMISSIONS.VIEW_PENDING_PAYMENTS,
+  ],
+  RECEPTIONIST: [
+    PERMISSIONS.VIEW_RECEPTIONIST_DASHBOARD,
+    PERMISSIONS.VIEW_PATIENT_LIST,
+    PERMISSIONS.VIEW_PATIENT_DETAILS,
+    PERMISSIONS.REGISTER_PATIENT,
+    PERMISSIONS.EDIT_PATIENT,
+    PERMISSIONS.UPLOAD_PATIENT_IMAGES,
+    PERMISSIONS.VIEW_APPOINTMENTS,
+    PERMISSIONS.BOOK_APPOINTMENT,
+    PERMISSIONS.RESCHEDULE_APPOINTMENT,
+    PERMISSIONS.CANCEL_APPOINTMENT,
+    PERMISSIONS.MANAGE_QUEUE,
+    PERMISSIONS.VIEW_PRESCRIPTIONS, // view-only
+    PERMISSIONS.GENERATE_BILLS,
+    PERMISSIONS.RECEIVE_PAYMENTS,
+    PERMISSIONS.PRINT_INVOICE,
+    PERMISSIONS.VIEW_REPORTS,
+  ],
+};

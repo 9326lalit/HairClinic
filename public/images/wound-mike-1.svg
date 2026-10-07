@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#fed7aa"/>
+  <path d="M150 140 Q180 120 220 150 T260 160" fill="none" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+  <rect x="10" y="10" width="380" height="30" fill="#000" opacity="0.1"/>
+  <text x="20" y="30" font-family="monospace" font-size="14" fill="#333" font-weight="bold">CASE: PT-1002 | Michael Johnson | DATE: 2026-06-10</text>
+  <text x="200" y="270" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">Surgical Wound: Post-op Week 1 (Stitches in place)</text>
+</svg>
